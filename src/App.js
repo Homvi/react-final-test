@@ -15,12 +15,11 @@ const App = () => {
         setLoaded(true)
       })
   }, [])
-  console.log(myData);
+  
 
 
   return (
     <div className="App">
-
       <h1>Hotels</h1>
 
       {!isLoaded && <LoadingMask />}

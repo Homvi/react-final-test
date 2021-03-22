@@ -10,7 +10,7 @@ const Hotel = ({ name, city, stars }) => {
 
     let toggleData = () => {
         setNameVisibility(!isNameVisible)
-        if (buttonContent == "show more") {
+        if (buttonContent === "show more") {
             setButtonContent("show less")
         }
         else {

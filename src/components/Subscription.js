@@ -5,7 +5,6 @@ const Subscription = () => {
 
     const [isEmailValid, setEmailValidity] = useState(false)
     const [inputValue, setInputValue] = useState("")
-    const [postBody, setPostBody] = useState({})
 
     const mailValidator = (mail) => {
         let inputValueArr = mail.split("")
@@ -32,6 +31,7 @@ const Subscription = () => {
         }) {
             const response = await fetch(url, {
                 method: 'POST',
+                mode: 'cors',
                 headers: {
                     'Content-Type': 'application/json'
                 },
