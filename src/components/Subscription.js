@@ -24,10 +24,10 @@ const Subscription = () => {
 
     const sendData = (e) => {
 
-e.preventDefault();
+        e.preventDefault();
 
         async function postData(url = 'http://localhost:3000/api/hotels/subscribe', data = {
-            "email": inputValue,
+            "email": "inputValue",
             "hotel": "Hotel name"
         }) {
             const response = await fetch(url, {
@@ -40,10 +40,9 @@ e.preventDefault();
             return response.json();
         }
         postData("http://localhost:3000/api/hotels/subscribe", {
-            "email": inputValue,
+            "email": "inputValue",
             "hotel": "Hotel name"
-        })
-            .then(res => { res.json() }).then(data => console.log(data))
+        }).then(res => res.json()).then(data => console.log(data))
     }
 
 
