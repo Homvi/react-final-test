@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState } from "react";
+import Subscription from "./Subscription"
 
-const Hotel = ({ data }) => {
+const Hotel = ({ name, city, stars }) => {
     const [isNameVisible, setNameVisibility] = useState(false)
     const [buttonContent, setButtonContent] = useState("show more")
     const [isSubscribeVisible, setSubscribeVisibility] = useState(false)
@@ -9,7 +10,7 @@ const Hotel = ({ data }) => {
 
     let toggleData = () => {
         setNameVisibility(!isNameVisible)
-        if(buttonContent == "show more"){
+        if (buttonContent == "show more") {
             setButtonContent("show less")
         }
         else {
@@ -20,17 +21,12 @@ const Hotel = ({ data }) => {
 
     return (
         <div>
-            {data.map((hotel, id) => {
-                return (
-                    <div className="hotel-card">
-                        <div className="hotel-name">{hotel.name}</div>
-                        { isNameVisible && <div>City:{hotel.city}</div>}
-                        { isNameVisible && <div>Stars:{hotel.stars}</div>}
-                        <button onClick={toggleData} >{buttonContent}</button>
-                    </div>
-                )
-            })}
-            {isNameVisible && <button>Request more info</button>} 
+           <div>{name}</div>
+           {isNameVisible && <div>{city}</div>}
+           {isNameVisible && <div>{stars}</div>}
+           <button onClick={toggleData} >{buttonContent}</button>
+            {isSubscribeVisible && <Subscription />}
+            {isNameVisible && <button onClick={e => setSubscribeVisibility(true)} >Request more info</button>}
         </div>
     )
 }

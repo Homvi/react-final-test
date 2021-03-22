@@ -22,8 +22,16 @@ const App = () => {
     <div className="App">
 
       <h1>Hotels</h1>
+
       {!isLoaded && <LoadingMask />}
-      {isLoaded && <Hotel data={myData} />}
+
+      {isLoaded && myData.map((hotel, id) => {
+        return (
+          <div key={id} className="card-container">
+            <Hotel  name={hotel.name} city={hotel.city} stars={hotel.stars}/>
+          </div>
+        )
+      })}
     </div>
   )
 }
